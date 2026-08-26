@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>我的小小宇宙</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="home" aria-label="个人网站首页">
+      <img class="hero-image" src="Material/images/p1.jpg" alt="神奇阿呦和企鹅站在红色大门前吹泡泡" />
+      <div class="warm-light"></div>
+      <nav class="bubble-nav" aria-label="网站导航">
+        <button class="bubble bubble-about" data-panel="about" aria-label="打开自我介绍"><span>我是谁</span></button>
+        <button class="bubble bubble-work" data-panel="work" aria-label="打开项目集"><span>项目集</span></button>
+        <button class="bubble bubble-social" data-panel="social" aria-label="打开社交账号"><span>找到我</span></button>
+      </nav>
+    </main>
+    <section class="panel about-journey" id="about" aria-hidden="true">
+      <button class="close" aria-label="返回首页">×</button>
+      <div class="sky-wash"></div><div class="cloud cloud-one"></div><div class="cloud cloud-two"></div><div class="cloud cloud-three"></div>
+      <div class="journey-scroll">
+        <article class="story-card intro-card">
+          <p class="story-no">01 / 自我介绍</p><h1>你好，我是<br /><strong>张三</strong></h1>
+          <p>资深前端工程师。<br />专注前端架构与用户体验，擅长用 React 和 Vue 构建优雅的 Web 应用。</p>
+        </article>
+        <article class="story-card direction-card">
+          <p class="story-no">02 / 正在前往</p><h2>用代码构建<br />流畅的体验</h2>
+          <p>我专注前端架构、性能优化与交互动效。希望用干净的代码和精致的细节，让产品更有生命力。</p>
+        </article>
+        <article class="story-card skills-card">
+          <p class="story-no">03 / 随身行囊</p><h2>我的能力</h2>
+          <div class="ability-list"><span>React</span><span>Vue</span><span>TypeScript</span><span>Node.js</span></div>
+          <p class="journey-end">故事还在继续。</p>
+        </article>
+      </div>
+      <div class="paper-plane" aria-hidden="true"><i></i></div>
+      <p class="journey-hint">向下滑动，和我一起飞一会儿</p>
+    </section>
+    <section class="panel" id="work" aria-hidden="true"><button class="close" aria-label="关闭">×</button><p class="panel-kicker">我的作品</p><h1>项目集</h1><p class="panel-copy">这里展示我参与过的前端项目，包括 Web 应用、组件库和交互体验。每个项目都代表着一次技术与创意的结合。</p><div class="project-lines"><i></i><i></i><i></i></div></section>
+    <section class="panel" id="social" aria-hidden="true"><button class="close" aria-label="关闭">×</button><p class="panel-kicker">保持联系</p><h1>找到我</h1><p class="panel-copy">如果你有合作意向或想交流前端技术，欢迎通过 GitHub、邮箱或其他方式联系我。</p><div class="social-dots"><b></b><b></b><b></b><b></b></div></section>
+    <script src="script.js"></script>
+  </body>
+</html>
