@@ -9,8 +9,6 @@
   <link rel="icon" type="image/png" href="./favico.png" />
   <link rel="apple-touch-icon" href="./favico.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="google-site-verification" content="hJ5aPZ41MvWj8wpgBteG7wWeOaKQk0TrSWgfKrTTE50" />
-  <meta name="google-site-verification" content="xHP9fuTfxKEJaZ1C9d_MYu1jQhgAsHJLSol3j5f55yA" />
   <meta name="theme-color" content="#fafafa" />
 
   <!-- SEO Meta Tags -->
@@ -21,24 +19,18 @@
   <meta name="keywords"
     content="张三, 资深前端工程师, 前端开发, React, Vue, TypeScript, Node.js, 个人作品集" />
   <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://itomdev.com/" />
 
   <!-- Open Graph (Facebook, LinkedIn, Discord) -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="张三 | 资深前端工程师" />
   <meta property="og:description" content="资深前端工程师 - 专注前端架构与用户体验，擅长 React 和 Vue。" />
-  <meta property="og:url" content="https://itomdev.com/" />
   <meta property="og:site_name" content="张三的个人作品集" />
-  <meta property="og:image" content="https://itomdev.com/og-image.webp" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
   <meta property="og:locale" content="zh_CN" />
 
   <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="张三 | 资深前端工程师" />
   <meta name="twitter:description" content="资深前端工程师 - 专注前端架构与用户体验，擅长 React 和 Vue。" />
-  <meta name="twitter:image" content="https://itomdev.com/og-image.webp" />
 
   <!-- Google Fonts: Hand-drawn + Primary -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -67,7 +59,8 @@
   <link rel="stylesheet" crossorigin href="./assets/index-BvAzD-RO.css">
 
   <!-- Dynamic Structured Data (JSON-LD) — generated from Sanity at build time -->
-  <script type="application/ld+json">
+  <!-- 原模板的结构化数据保留作迁移参考，但不参与搜索引擎解析。 -->
+  <script type="application/json" id="legacy-template-data">
 {
   "@context": "https://schema.org",
   "@graph": [
@@ -684,11 +677,22 @@
   ]
 }
   </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "张三",
+      "jobTitle": "资深前端工程师",
+      "description": "专注前端架构、性能优化与用户体验。",
+      "knowsAbout": ["React", "Vue", "TypeScript", "Node.js", "Three.js"]
+    }
+  </script>
 </head>
 
 <body>
   <!-- SEO Fallback for WebGL SPAs (2026 Crawl Optimization) -->
   
+<template id="legacy-template-content">
 <div id="seo-content" class="sr-only-seo">
   <header>
     <h1>张三 | 资深前端工程师</h1>
@@ -922,14 +926,66 @@
     </article>
   </section>
 </div>
+</template>
 
 
   <!-- Noscript strict fallback -->
   <noscript>
-    Plese enable JavaScript to experience the interactive 3D portfolio of Tomasz Szmajda (ITom Dev).
+    请启用 JavaScript 以体验交互式 3D 作品集。
   </noscript>
 
   <div id="root"></div>
+
+  <!-- 返回首页按钮 -->
+  <style>
+    .back-home-btn {
+      position: fixed;
+      top: 1.2rem;
+      left: 1.2rem;
+      z-index: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      padding: .55rem 1.15rem;
+      font-family: "Caveat", "Comic Sans MS", cursive;
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #512d27;
+      text-decoration: none;
+      background: #fff9ed url(./textures/paper-texture.webp);
+      background-size: cover;
+      border: 2px solid #512d27;
+      border-radius: 14px 18px 15px 19px / 18px 14px 19px 15px;
+      box-shadow: 2px 3px 0 rgba(81, 45, 39, .3);
+      transform: rotate(-1.5deg);
+      transition: transform .25s ease, box-shadow .25s ease, background-color .25s ease;
+      cursor: pointer;
+      user-select: none;
+    }
+    .back-home-btn:hover {
+      transform: rotate(0deg) scale(1.06);
+      box-shadow: 3px 5px 0 rgba(81, 45, 39, .35);
+      background-color: #fff;
+    }
+    .back-home-btn:active {
+      transform: rotate(0deg) scale(.97);
+      box-shadow: 1px 2px 0 rgba(81, 45, 39, .3);
+    }
+    .back-home-btn svg {
+      width: 1.1em;
+      height: 1.1em;
+      stroke: currentColor;
+    }
+    @media (max-width: 650px) {
+      .back-home-btn { top: .8rem; left: .8rem; font-size: 1.1rem; padding: .45rem .9rem; }
+    }
+  </style>
+  <a class="back-home-btn" href="../index.html" aria-label="返回首页">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M19 12H5M12 19l-7-7 7-7" />
+    </svg>
+    返回首页
+  </a>
 </body>
 
 </html>

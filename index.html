@@ -3,33 +3,86 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>我的小小宇宙</title>
+    <title>张三 | 资深前端工程师</title>
+    <meta name="description" content="张三，资深前端工程师，专注前端架构与用户体验。" />
+    <link rel="icon" type="image/png" href="about-template/favico.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <main class="home" aria-label="个人网站首页">
-      <img class="hero-image" src="Material/images/p1.jpg" alt="神奇阿呦和企鹅站在红色大门前吹泡泡" />
+    <!-- 预加载器 -->
+    <div class="preloader" id="preloader">
+      <svg class="preloader-sketch" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="60" cy="60" r="45" stroke-dasharray="283" stroke-dashoffset="283" class="preloader-circle" />
+        <path d="M45 62 L55 72 L78 48" stroke-dasharray="60" stroke-dashoffset="60" class="preloader-check" />
+      </svg>
+      <p class="preloader-text">正在绘制…</p>
+    </div>
+
+    <!-- 自定义光标 -->
+    <div class="cursor-dot" id="cursorDot"></div>
+    <div class="cursor-ring" id="cursorRing"></div>
+
+    <!-- 粒子画布 -->
+    <canvas class="particle-canvas" id="particleCanvas"></canvas>
+
+    <!-- 漂浮涂鸦装饰 -->
+    <svg class="doodle doodle-star" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M20 4 L23 16 L36 18 L26 26 L30 38 L20 32 L10 38 L14 26 L4 18 L17 16 Z" /></svg>
+    <svg class="doodle doodle-arrow" viewBox="0 0 60 40" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 20 Q30 5 50 20 M42 12 L50 20 L44 28" /></svg>
+    <svg class="doodle doodle-squiggle" viewBox="0 0 80 30" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 15 Q12 5 20 15 T36 15 T52 15 T68 15 T76 15" /></svg>
+    <svg class="doodle doodle-circle" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2"><circle cx="20" cy="20" r="15" stroke-dasharray="6 4" /></svg>
+    <svg class="doodle doodle-heart" viewBox="0 0 40 36" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 32 C8 22 4 14 8 10 C12 6 18 8 20 14 C22 8 28 6 32 10 C36 14 32 22 20 32 Z" /></svg>
+    <svg class="doodle doodle-zigzag" viewBox="0 0 60 30" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20 L14 8 L24 22 L34 8 L44 22 L54 10" /></svg>
+
+    <!-- 主页 -->
+    <main class="home" id="home" aria-label="个人网站首页">
+      <div class="hero-layer">
+        <img class="hero-image" id="heroImage" src="Material/images/p1.jpg" alt="张三的个人主页" />
+      </div>
       <div class="warm-light"></div>
-      <nav class="bubble-nav" aria-label="网站导航">
+      <div class="vignette"></div>
+
+      <!-- 入场标题 -->
+      <div class="hero-title" id="heroTitle">
+        <p class="hero-kicker">资深前端工程师</p>
+        <h1 class="hero-name">张三</h1>
+        <p class="hero-sub">用代码构建流畅体验</p>
+      </div>
+
+      <!-- 气泡导航 -->
+      <nav class="bubble-nav" id="bubbleNav" aria-label="网站导航">
         <button class="bubble bubble-about" data-panel="about" aria-label="打开自我介绍"><span>我是谁</span></button>
         <button class="bubble bubble-work" data-panel="work" aria-label="打开项目集"><span>项目集</span></button>
         <button class="bubble bubble-social" data-panel="social" aria-label="打开社交账号"><span>找到我</span></button>
       </nav>
+
+      <!-- 滚动提示 -->
+      <div class="scroll-hint" id="scrollHint"><span></span><p>探索</p></div>
     </main>
-    <section class="panel about-journey" id="about" aria-hidden="true">
+
+    <!-- 自我介绍 — 滚动故事 -->
+    <section class="about-journey" id="about" aria-hidden="true">
       <button class="close" aria-label="返回首页">×</button>
-      <div class="sky-wash"></div><div class="cloud cloud-one"></div><div class="cloud cloud-two"></div><div class="cloud cloud-three"></div>
+      <div class="sky-wash"></div>
+      <div class="cloud cloud-one"></div>
+      <div class="cloud cloud-two"></div>
+      <div class="cloud cloud-three"></div>
       <div class="journey-scroll">
-        <article class="story-card intro-card">
-          <p class="story-no">01 / 自我介绍</p><h1>你好，我是<br /><strong>张三</strong></h1>
+        <article class="story-card intro-card" data-reveal>
+          <p class="story-no">01 / 自我介绍</p>
+          <h1>你好，我是<br /><strong>张三</strong></h1>
           <p>资深前端工程师。<br />专注前端架构与用户体验，擅长用 React 和 Vue 构建优雅的 Web 应用。</p>
         </article>
-        <article class="story-card direction-card">
-          <p class="story-no">02 / 正在前往</p><h2>用代码构建<br />流畅的体验</h2>
+        <article class="story-card direction-card" data-reveal>
+          <p class="story-no">02 / 正在前往</p>
+          <h2>用代码构建<br />流畅的体验</h2>
           <p>我专注前端架构、性能优化与交互动效。希望用干净的代码和精致的细节，让产品更有生命力。</p>
         </article>
-        <article class="story-card skills-card">
-          <p class="story-no">03 / 随身行囊</p><h2>我的能力</h2>
+        <article class="story-card skills-card" data-reveal>
+          <p class="story-no">03 / 随身行囊</p>
+          <h2>我的能力</h2>
           <div class="ability-list"><span>React</span><span>Vue</span><span>TypeScript</span><span>Node.js</span></div>
           <p class="journey-end">故事还在继续。</p>
         </article>
@@ -37,8 +90,53 @@
       <div class="paper-plane" aria-hidden="true"><i></i></div>
       <p class="journey-hint">向下滑动，和我一起飞一会儿</p>
     </section>
-    <section class="panel" id="work" aria-hidden="true"><button class="close" aria-label="关闭">×</button><p class="panel-kicker">我的作品</p><h1>项目集</h1><p class="panel-copy">这里展示我参与过的前端项目，包括 Web 应用、组件库和交互体验。每个项目都代表着一次技术与创意的结合。</p><div class="project-lines"><i></i><i></i><i></i></div></section>
-    <section class="panel" id="social" aria-hidden="true"><button class="close" aria-label="关闭">×</button><p class="panel-kicker">保持联系</p><h1>找到我</h1><p class="panel-copy">如果你有合作意向或想交流前端技术，欢迎通过 GitHub、邮箱或其他方式联系我。</p><div class="social-dots"><b></b><b></b><b></b><b></b></div></section>
+
+    <!-- 项目集面板 -->
+    <section class="panel" id="work" role="dialog" aria-modal="true" aria-labelledby="work-title" aria-hidden="true">
+      <button class="close" aria-label="关闭">×</button>
+      <p class="panel-kicker">我的作品</p>
+      <h1 id="work-title">项目集</h1>
+      <p class="panel-copy">这里展示我参与过的前端项目，包括 Web 应用、组件库和交互体验。</p>
+      <div class="project-list">
+        <div class="project-card" data-reveal><div class="project-icon">⚡</div><h3>企业级管理后台</h3><p>React + TypeScript，权限管理与数据可视化</p></div>
+        <div class="project-card" data-reveal><div class="project-icon">🛒</div><h3>电商前台系统</h3><p>Vue 3 + Nuxt，首屏 Lighthouse 95+</p></div>
+        <div class="project-card" data-reveal><div class="project-icon">📊</div><h3>数据可视化平台</h3><p>React + ECharts，多数据源实时更新</p></div>
+      </div>
+    </section>
+
+    <!-- 社交面板 -->
+    <section class="panel" id="social" role="dialog" aria-modal="true" aria-labelledby="social-title" aria-hidden="true">
+      <button class="close" aria-label="关闭">×</button>
+      <p class="panel-kicker">保持联系</p>
+      <h1 id="social-title">找到我</h1>
+      <p class="panel-copy">如果你有合作意向或想交流前端技术，欢迎联系我。</p>
+      <div class="social-grid">
+        <span class="social-card is-placeholder" data-reveal><span class="social-emoji">📧</span><span>邮箱</span></span>
+        <span class="social-card is-placeholder" data-reveal><span class="social-emoji">🐙</span><span>GitHub</span></span>
+        <span class="social-card is-placeholder" data-reveal><span class="social-emoji">💼</span><span>LinkedIn</span></span>
+        <span class="social-card is-placeholder" data-reveal><span class="social-emoji">💬</span><span>微信</span></span>
+      </div>
+    </section>
+
+    <!-- 音频控制 -->
+    <button class="audio-toggle" id="audioToggle" aria-label="切换背景音乐">
+      <svg class="audio-icon audio-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+      <svg class="audio-icon audio-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
+    </button>
+    <audio id="bgMusic" loop preload="auto">
+      <!-- 把音频文件放到 sounds/ 目录下，替换文件名即可 -->
+      <source src="sounds/bgm.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- 门过渡覆盖层 -->
+    <div class="door-overlay" id="doorOverlay" aria-hidden="true">
+      <div class="door door-left"></div>
+      <div class="door door-right"></div>
+      <div class="door-light"></div>
+    </div>
+
     <script src="script.js"></script>
+    <!-- 动画库异步加载；网络不可用时页面仍可正常使用 -->
+    <script async src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
   </body>
 </html>

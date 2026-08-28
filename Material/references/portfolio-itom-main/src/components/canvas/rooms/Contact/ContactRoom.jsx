@@ -248,9 +248,6 @@ const ContactRoom = ({ showRoom, onReady, isExiting, isWarmup }) => {
     }, [hasSignaledReady.current, showRoom, camera]);
 
     const handleMailSelect = () => {
-        // Awaryjne przekierowanie mailto:
-        window.location.href = 'mailto:tomszma12@gmail.com';
-
         /* 
         setShowSelection(false);
 
@@ -404,7 +401,6 @@ const ContactRoom = ({ showRoom, onReady, isExiting, isWarmup }) => {
                 rotation={[0, 0.2, 0]}
                 texturePath="/textures/contact/beczka.webp"
                 label="LINKEDIN"
-                onClick={() => window.open('https://www.linkedin.com/in/tomasz-szmajda-259337305/', '_blank')}
                 paintOnBeforeCompile={onBeforeCompile}
                 paintUniforms={uniformsData}
             />
@@ -414,7 +410,6 @@ const ContactRoom = ({ showRoom, onReady, isExiting, isWarmup }) => {
                 rotation={[0, 0.3, 0]}
                 texturePath="/textures/contact/beczka.webp"
                 label="GITHUB"
-                onClick={() => window.open('https://github.com/ITomPoland', '_blank')}
                 paintOnBeforeCompile={onBeforeCompile}
                 paintUniforms={uniformsData}
             />
@@ -424,7 +419,6 @@ const ContactRoom = ({ showRoom, onReady, isExiting, isWarmup }) => {
                 rotation={[0, -0.2, 0]}
                 texturePath="/textures/contact/beczka.webp"
                 label="FACEBOOK"
-                onClick={() => window.open('https://www.facebook.com/people/ITom/61586563487664/', '_blank')}
                 paintOnBeforeCompile={onBeforeCompile}
                 paintUniforms={uniformsData}
             />
@@ -434,7 +428,6 @@ const ContactRoom = ({ showRoom, onReady, isExiting, isWarmup }) => {
                 rotation={[0, -0.3, 0]}
                 texturePath="/textures/contact/beczka.webp"
                 label="INSTAGRAM"
-                onClick={() => window.open('https://www.instagram.com/itom.dev/', '_blank')}
                 paintOnBeforeCompile={onBeforeCompile}
                 paintUniforms={uniformsData}
             />

@@ -76,7 +76,11 @@ export const AudioProvider = ({ children }) => {
     }, [audioEnabled]);
 
     const play = useCallback((soundName, { loop = false, volume = 1.0 } = {}) => {
-        // Graceful degradation if files missing
+        // These effects are optional; the deployment does not include their files.
+        if (soundName === 'pencil' || soundName === 'tear') {
+            return { stop: () => { }, fade: () => { } };
+        }
+
         const soundPaths = {
             'szumwiatru': '/sounds/szumwiatru.mp3', // Szum wiatru w pokoju About
             'szummiasta': '/sounds/szummiasta.mp3', // Szum miasta w pokoju The Gallery
@@ -84,10 +88,9 @@ export const AudioProvider = ({ children }) => {
             'otwarciedrzwi': '/sounds/otwarciedrzwi.mp3',   // Otwarcie głównych/bocznych drzwi
             'zamknieciedrzwi': '/sounds/zamknieciedrzwi.mp3' // Zamykanie drzwi
         };
-        const path = soundPaths[soundName] || `/sounds/${soundName}.mp3`;
+        const path = soundPaths[soundName];
+        if (!path) return { stop: () => { }, fade: () => { } };
 
-        // In "simulation mode" or if file missing, this might error.
-        // We'll trust the browser to handle 404s without crashing JS.
         const audio = new Audio(path);
 
         // Store metadata
