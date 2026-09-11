@@ -65,7 +65,56 @@ const GlobalOverlay = () => {
     const content = overlayContent || cachedContent || dummyGridContent;
 
     // Propagate animateOpen state to control CSS transitions
+    if (content.layout === 'knowledge_planet') {
+        return <KnowledgePlanetOverlay content={content} isOpen={animateOpen} onClose={closeOverlay} />;
+    }
+
     return <ContentCard content={content} isOpen={animateOpen} onClose={closeOverlay} isMobile={isMobile} />;
+};
+
+const KnowledgePlanetOverlay = ({ content, isOpen, onClose }) => {
+    const detailUrl = `/about-template/knowledge.html?topic=${encodeURIComponent(content.path)}`;
+
+    useEffect(() => {
+        const handleEscape = (event) => {
+            if (event.key === 'Escape') onClose();
+        };
+        window.addEventListener('keydown', handleEscape);
+        return () => window.removeEventListener('keydown', handleEscape);
+    }, [onClose]);
+
+    return (
+        <div className={`knowledge-overlay ${isOpen ? 'is-open' : ''}`} role="dialog" aria-modal="true" aria-label={`${content.title} 知识点详情`} onClick={onClose}>
+            <div className="knowledge-overlay__scan" />
+            <article className="knowledge-console" style={{ '--planet-color': content.color }} onClick={(event) => event.stopPropagation()}>
+                <header className="knowledge-console__header">
+                    <div className="knowledge-console__index"><span>NODE</span><strong>{content.id}</strong></div>
+                    <div>
+                        <p>{content.code} / KNOWLEDGE PLANET</p>
+                        <h2>{content.title}</h2>
+                    </div>
+                    <button type="button" onClick={onClose} aria-label="关闭知识点详情" title="关闭">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" /></svg>
+                    </button>
+                </header>
+                <div className="knowledge-console__body">
+                    <div className="knowledge-console__planet" aria-hidden="true"><i /><span /></div>
+                    <div className="knowledge-console__content">
+                        <p className="knowledge-console__summary">{content.summary}</p>
+                        <div className="knowledge-console__signal"><span>KNOWLEDGE SIGNAL</span><i /><strong>ONLINE</strong></div>
+                        <h3>核心面试问题</h3>
+                        <ol>
+                            {content.questions?.map((question, index) => <li key={question}><span>0{index + 1}</span>{question}</li>)}
+                        </ol>
+                    </div>
+                </div>
+                <footer>
+                    <span>AI-INTERVIEW / DOCS / {content.path}</span>
+                    <a href={detailUrl} target="_blank" rel="noopener noreferrer">打开完整专题 <b>↗</b></a>
+                </footer>
+            </article>
+        </div>
+    );
 };
 
 const ContentCard = ({ content, isOpen, onClose, isMobile }) => {
@@ -538,8 +587,19 @@ const ContentCard = ({ content, isOpen, onClose, isMobile }) => {
                                     rel="noopener noreferrer"
                                     className="studio-action-button"
                                 >
-                                    Open Link ↗
+                                    {content.platform === 'social' ? 'Open GitHub ↗' : 'Open Details ↗'}
                                 </a>
+                                {content.secondaryUrl && (
+                                    <a
+                                        href={content.secondaryUrl}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="studio-action-button"
+                                        style={{ marginLeft: '0.75rem' }}
+                                    >
+                                        Open Douyin ↗
+                                    </a>
+                                )}
                             </div>
                         </>
                     )}

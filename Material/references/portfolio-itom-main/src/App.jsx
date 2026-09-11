@@ -162,7 +162,7 @@ function AppContent() {
                 alpha: false,
                 powerPreference: settings.powerPreference,
                 localClippingEnabled: true,
-                failIfMajorPerformanceCaveat: true
+                failIfMajorPerformanceCaveat: false
               }}
               dpr={settings.dpr}
               shadows={settings.shadows}

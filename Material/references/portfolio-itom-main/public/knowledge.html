@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#05080c" />
+    <title>AI 面试知识专题</title>
+    <link rel="stylesheet" href="./knowledge-reader.css" />
+  </head>
+  <body>
+    <header class="reader-header">
+      <a class="reader-back" href="./index.html" aria-label="返回知识星系">←</a>
+      <div><span>AI INTERVIEW ARCHIVE</span><strong id="readerTitle">知识专题</strong></div>
+      <span class="reader-status"><i></i> UTF-8 / ONLINE</span>
+    </header>
+    <main class="reader-shell">
+      <aside class="reader-index" aria-label="专题目录">
+        <span>CONTENTS</span>
+        <nav id="readerNav"></nav>
+      </aside>
+      <article class="reader-article" id="readerArticle" aria-live="polite">
+        <div class="reader-loading"><i></i><span>正在读取知识档案</span></div>
+      </article>
+    </main>
+    <script type="module" src="./knowledge-reader.js"></script>
+  </body>
+</html>

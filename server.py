@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""本地开发服务器：禁用缓存，并保留明确的作品集旧地址。"""
+"""本地开发服务器：禁用缓存，并保留 3D 作品集地址。"""
 import http.server
 import os
 import socketserver
@@ -19,7 +19,7 @@ class NoCacheHandler(http.server.SimpleHTTPRequestHandler):
         super().end_headers()
 
     def send_head(self):
-        # 只为明确的旧地址提供兜底；其他未知路径保持标准 404。
+        # 为 3D 作品集提供简洁的 /about 地址；其他未知路径保持标准 404。
         p = self.path.split("?", 1)[0].split("#", 1)[0]
         fs_path = super().translate_path(self.path)
         if not os.path.exists(fs_path) and p.rstrip("/").lower() == "/about":

@@ -229,8 +229,8 @@ const InfiniteSkyManager = ({ scrollProgressRef }) => {
                         scrollProgressRef={scrollProgressRef}
                     />
 
-                    {/* === AWARDS MILESTONE === */}
-                    <AwardsMilestone
+                    {/* === PROJECTS MILESTONE === */}
+                    <ProjectsMilestone
                         z={-(cycleIndex * STORY_CYCLE_LENGTH + 55)}
                         scrollProgressRef={scrollProgressRef}
                     />
@@ -352,7 +352,7 @@ const IntroMilestone = ({ z, scrollProgressRef }) => {
                 anchorY="middle"
                 font="/fonts/RubikScribble-Regular.ttf"
             >
-                TOMASZ SZMAJDA
+                QIU ZHUO
             </Text>
 
             {/* Subtitle - Brand (spreads right) */}
@@ -365,7 +365,7 @@ const IntroMilestone = ({ z, scrollProgressRef }) => {
                 anchorY="middle"
                 font="/fonts/CabinSketch-Regular.ttf"
             >
-                (ITOM)
+                (AI APPLICATION DEVELOPER)
             </Text>
 
             {/* Avatar on cloud - floating + spreads up-left */}
@@ -390,7 +390,7 @@ const IntroMilestone = ({ z, scrollProgressRef }) => {
                 font="/fonts/CabinSketch-Regular.ttf"
                 fontStyle="italic"
             >
-                "Crafting digital experiences
+                "Building reliable AI applications
             </Text>
 
             {/* Motto - Line 2 (spreads left) */}
@@ -404,8 +404,28 @@ const IntroMilestone = ({ z, scrollProgressRef }) => {
                 font="/fonts/CabinSketch-Regular.ttf"
                 fontStyle="italic"
             >
-                that push creative boundaries"
+                from retrieval to user experience"
             </Text>
+        </group>
+    );
+};
+
+/** Resume project highlights, replacing the template author's award wall. */
+const ProjectsMilestone = ({ z, scrollProgressRef }) => {
+    const groupRef = useRef();
+    useFrame(() => {
+        if (!groupRef.current) return;
+        const scrollProgress = scrollProgressRef?.current || 0;
+        groupRef.current.visible = ROOM_Z + scrollProgress + z < MILESTONE_CORRIDOR_CLIP_Z;
+    });
+
+    return (
+        <group ref={groupRef} position={[0, 1.5, z]}>
+            <Text position={[0, 4, 0]} fontSize={1.1} color="#1a1a1a" anchorX="center" anchorY="middle" font="/fonts/RubikScribble-Regular.ttf">PROJECTS</Text>
+            <Text position={[-3.4, 1.3, 0]} fontSize={0.42} color="#1a1a1a" anchorX="center" anchorY="middle" font="/fonts/CabinSketch-Bold.ttf">ZHIXUEBAN AI</Text>
+            <Text position={[-3.4, 0.55, 0]} maxWidth={5.3} textAlign="center" lineHeight={1.35} fontSize={0.25} color="#4a4a4a" anchorX="center" anchorY="top" font="/fonts/CabinSketch-Regular.ttf">RAG · SSE · WebSocket\n14 Pages · 100+ APIs · 46 JUnit Tests</Text>
+            <Text position={[3.4, 1.3, 0]} fontSize={0.42} color="#1a1a1a" anchorX="center" anchorY="middle" font="/fonts/CabinSketch-Bold.ttf">WORD REVIEW ASSISTANT</Text>
+            <Text position={[3.4, 0.55, 0]} maxWidth={5.3} textAlign="center" lineHeight={1.35} fontSize={0.25} color="#4a4a4a" anchorX="center" anchorY="top" font="/fonts/CabinSketch-Regular.ttf">Python · Tkinter · CET4 · GIF Mascot\n7 Practice Modes · 14 Unit Tests</Text>
         </group>
     );
 };
@@ -903,7 +923,7 @@ const JourneyMilestone = ({ z, scrollProgressRef }) => {
                 anchorY="middle"
                 font="/fonts/RubikScribble-Regular.ttf"
             >
-                JOURNEY
+                EDUCATION
             </Text>
 
             {/* Subtitle */}
@@ -915,7 +935,7 @@ const JourneyMilestone = ({ z, scrollProgressRef }) => {
                 anchorY="middle"
                 font="/fonts/CabinSketch-Regular.ttf"
             >
-                My path so far...
+                Data Science and Big Data Technology
             </Text>
 
             {/* === UO ISLAND (Left) === */}
@@ -937,7 +957,7 @@ const JourneyMilestone = ({ z, scrollProgressRef }) => {
                     anchorY="middle"
                     font="/fonts/CabinSketch-Bold.ttf"
                 >
-                    2025-NOW
+                    AI / JAVA
                 </Text>
             </group>
 
@@ -960,7 +980,7 @@ const JourneyMilestone = ({ z, scrollProgressRef }) => {
                     anchorY="middle"
                     font="/fonts/CabinSketch-Bold.ttf"
                 >
-                    2023-NOW
+                    2023-2027
                 </Text>
             </group>
         </group>
@@ -976,20 +996,20 @@ const JourneyMilestone = ({ z, scrollProgressRef }) => {
 // === EDYTUJ WYSOKOŚĆ TUTAJ (zmień wartość 'y' dla każdego balona) ===
 const BALLOON_CONFIG = [
     // Large balloons (main skills) - front and center
-    { texture: '/textures/about/reactduzybalon.webp', paintedTexture: '/textures/about/reactduzybalon_painted.webp', label: 'React', size: 'large', x: -2.5, y: 2, z: 0.3, phase: 0 },
-    { texture: '/textures/about/threejsduzybalon.webp', paintedTexture: '/textures/about/threejsduzybalon_painted.webp', label: 'Three.js', size: 'large', x: 2.5, y: 2.5, z: 0.2, phase: 1.5 },
-    { texture: '/textures/about/GSAPduzybalon.webp', paintedTexture: '/textures/about/GSAPduzybalon_painted.webp', label: 'GSAP', size: 'large', x: 0, y: 3, z: 0.5, phase: 3 },
+    { texture: '/textures/about/reactduzybalon.webp', paintedTexture: '/textures/about/reactduzybalon_painted.webp', label: 'Spring Boot', size: 'large', x: -2.5, y: 2, z: 0.3, phase: 0 },
+    { texture: '/textures/about/threejsduzybalon.webp', paintedTexture: '/textures/about/threejsduzybalon_painted.webp', label: 'RAG', size: 'large', x: 2.5, y: 2.5, z: 0.2, phase: 1.5 },
+    { texture: '/textures/about/GSAPduzybalon.webp', paintedTexture: '/textures/about/GSAPduzybalon_painted.webp', label: 'Java 21', size: 'large', x: 0, y: 3, z: 0.5, phase: 3 },
 
     // Medium balloons - scattered around
-    { texture: '/textures/about/JSSREDNIBALON.webp', paintedTexture: '/textures/about/JSSREDNIBALON_painted.webp', label: 'JavaScript', size: 'medium', x: -4, y: 1, z: -0.3, phase: 0.8 },
-    { texture: '/textures/about/csssrednibalon.webp', paintedTexture: '/textures/about/csssrednibalon_painted.webp', label: 'CSS', size: 'medium', x: 4, y: 1.5, z: -0.2, phase: 2.2 },
-    { texture: '/textures/about/nextjssrednibalon.webp', paintedTexture: '/textures/about/nextjssrednibalon_painted.webp', label: 'Next.js', size: 'medium', x: 0, y: 0.5, z: -0.4, phase: 4 },
+    { texture: '/textures/about/JSSREDNIBALON.webp', paintedTexture: '/textures/about/JSSREDNIBALON_painted.webp', label: 'Vue 3', size: 'medium', x: -4, y: 1, z: -0.3, phase: 0.8 },
+    { texture: '/textures/about/csssrednibalon.webp', paintedTexture: '/textures/about/csssrednibalon_painted.webp', label: 'TypeScript', size: 'medium', x: 4, y: 1.5, z: -0.2, phase: 2.2 },
+    { texture: '/textures/about/nextjssrednibalon.webp', paintedTexture: '/textures/about/nextjssrednibalon_painted.webp', label: 'Python', size: 'medium', x: 0, y: 0.5, z: -0.4, phase: 4 },
 
     // Small balloons - background accents
-    { texture: '/textures/about/htmlmalybalon.webp', paintedTexture: '/textures/about/htmlmalybalon_painted.webp', label: 'HTML', size: 'small', x: -5.5, y: 2.5, z: -0.8, phase: 1.2 },
+    { texture: '/textures/about/htmlmalybalon.webp', paintedTexture: '/textures/about/htmlmalybalon_painted.webp', label: 'PostgreSQL', size: 'small', x: -5.5, y: 2.5, z: -0.8, phase: 1.2 },
     { texture: '/textures/about/gitmalybalon.webp', paintedTexture: '/textures/about/gitmalybalon_painted.webp', label: 'Git', size: 'small', x: 5.5, y: 3, z: -0.7, phase: 2.8 },
-    { texture: '/textures/about/figmamalybalon.webp', paintedTexture: '/textures/about/figmamalybalon_painted.webp', label: 'Figma', size: 'small', x: -3, y: 4.5, z: -0.5, phase: 3.5 },
-    { texture: '/textures/about/firebasemalybalon.webp', paintedTexture: '/textures/about/firebasemalybalon_painted.webp', label: 'Firebase', size: 'small', x: 3.5, y: 4, z: -0.6, phase: 4.5 },
+    { texture: '/textures/about/figmamalybalon.webp', paintedTexture: '/textures/about/figmamalybalon_painted.webp', label: 'Redis', size: 'small', x: -3, y: 4.5, z: -0.5, phase: 3.5 },
+    { texture: '/textures/about/firebasemalybalon.webp', paintedTexture: '/textures/about/firebasemalybalon_painted.webp', label: 'RabbitMQ', size: 'small', x: 3.5, y: 4, z: -0.6, phase: 4.5 },
 ];
 
 // Size multipliers for balloon categories

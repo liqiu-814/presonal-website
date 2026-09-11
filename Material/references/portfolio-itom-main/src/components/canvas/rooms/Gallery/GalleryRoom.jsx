@@ -36,44 +36,26 @@ export const GALLERY_INTERACTION_AUDIO_SETTINGS = {
 // Define the unique projects and their textures
 const FALLBACK_PROJECTS = [
     {
-        id: 'monetune',
-        title: 'MONETUNE',
+        id: 'zhixueban',
+        title: 'ZHI XUE BAN',
         front: '/textures/gallery/monetuneprzod.webp',
         painted: '/textures/gallery/monetuneprzod_painted.webp',
-        url: 'https://monetune.pl',
-        description: 'MoneTune is a step-by-step blueprint that teaches beginners how to generate passive income using AI-created music. Without any musical skills, you will learn how to easily produce professional tracks, publish them on platforms like Spotify, and monetize your digital assets.',
-        techStack: ['/textures/gallery/wordpresslogo.webp', '/textures/gallery/elementorlogo.webp', '/textures/gallery/phplogo.webp', '/textures/gallery/csslogo.webp']
+        url: 'https://github.com/liqiu-814',
+        description: '大学生 AI 学习助手：包含个人课件知识库、混合检索 RAG、SSE 流式对话、实时听课、AI 笔记、智能刷题与学习计划。Java 21 + Spring Boot 3 + Vue 3 全栈实现，含 46 个 JUnit 测试。',
+        techStack: ['/textures/gallery/jslogo.webp', '/textures/gallery/reactlogo.webp', '/textures/gallery/firebaselogo.webp', '/textures/gallery/csslogo.webp']
     },
     {
-        id: 'timber',
-        title: 'TIMBERKITTY',
+        id: 'word-helper',
+        title: 'WORD HELPER',
         front: '/textures/gallery/timberkittyprzod.webp',
         painted: '/textures/gallery/timberkittyprzod_painted.webp',
-        url: 'https://timberkitty.netlify.app',
-        description: 'TimberKitty is an addictive, free-to-play browser arcade game built in pure JavaScript. Players control a lumberjack cat to chop wood, save birds, complete daily missions, and compete on global leaderboards.',
+        url: 'https://github.com/liqiu-814',
+        description: 'Python 桌面单词复习工具：支持 CET4 词库、7 种练习模式、学习统计、翻译服务降级、JSON 原子持久化、System.Speech 发音与可交互 GIF 桌宠，含 14 项 unittest。',
         techStack: ['/textures/gallery/jslogo.webp', '/textures/gallery/htmllogo.webp', '/textures/gallery/csslogo.webp', '/textures/gallery/firebaselogo.webp']
-    },
-    {
-        id: 'young',
-        title: 'YOUNG MULTI',
-        front: '/textures/gallery/youngmultiprzod.webp',
-        painted: '/textures/gallery/youngmultiprzod_painted.webp',
-        url: 'https://young-multi-strona.netlify.app',
-        description: 'A sleek, modern concept website dedicated to the Polish rapper and creator Young Multi. It serves as a promotional landing page designed to highlight his personal brand, music, and online presence.',
-        techStack: ['/textures/gallery/reactlogo.webp', '/textures/gallery/tailwindlogo.webp', '/textures/gallery/htmllogo.webp', '/textures/gallery/netlifylogo.webp']
-    },
-    {
-        id: 'bio',
-        title: 'BIO',
-        front: '/textures/gallery/bioprzod.webp',
-        painted: '/textures/gallery/bioprzod_painted.webp',
-        url: 'https://tomkingbio.netlify.app',
-        description: 'A fast, modern personal bio page serving as a central hub for my digital footprint. It showcases my latest coding projects, web development services, YouTube videos, and recommended music artists.',
-        techStack: ['/textures/gallery/htmllogo.webp', '/textures/gallery/csslogo.webp', '/textures/gallery/jslogo.webp', '/textures/gallery/netlifylogo.webp']
     },
 ];
 
-const PROJECT_COUNT = 10; // Keep the count for the infinite scroll feel
+const PROJECT_COUNT = 6; // Repeat the two resume projects for the infinite scroll feel
 const GAP = 2.5;
 
 // Zmień te wartości aby dopasować proporcje ptaka (legacy ratio 1.41)

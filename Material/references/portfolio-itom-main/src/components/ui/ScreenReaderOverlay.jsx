@@ -2,6 +2,19 @@ import { useScene } from '../../context/SceneContext';
 import { useGalleryProjects, useStudioContent, useAwards } from '../../hooks/useSanityData';
 import '../../styles/ScreenReaderOverlay.scss';
 
+const RESUME_PROJECTS = [
+    {
+        title: '智学伴｜大学生 AI 学习助手',
+        description: 'Java 21、Spring Boot 3、Vue 3 与 LangChain4j 全栈项目，覆盖知识库、混合检索 RAG、SSE 对话、实时听课、AI 笔记、刷题与学习计划。',
+        url: 'https://github.com/liqiu-814',
+    },
+    {
+        title: '单词复习小助手｜罗小黑桌宠',
+        description: 'Python / Tkinter 桌面项目，支持 CET4 词库、7 种练习、学习统计、服务降级、JSON 原子持久化与 GIF 桌宠。',
+        url: 'https://github.com/liqiu-814',
+    },
+];
+
 /**
  * ScreenReaderOverlay — A7 Accessibility
  * 
@@ -13,7 +26,7 @@ const ScreenReaderOverlay = () => {
     const { hasEntered, isInRoom, currentRoom, teleportTo, requestExit } = useScene();
     
     // Pobieranie danych do wygenerowania niewidocznego HTML-a dla SEO / robotów
-    const projects = useGalleryProjects();
+    const projects = useGalleryProjects() || RESUME_PROJECTS;
     const studio = useStudioContent();
     const awards = useAwards();
 
@@ -26,11 +39,11 @@ const ScreenReaderOverlay = () => {
 
             {/* Main accessible navigation */}
             <nav id="sr-main-nav" className="sr-only" aria-label="Portfolio rooms">
-                <h1>ITom — Creative Developer Portfolio</h1>
+                <h1>邱焯 — AI 应用开发 / Java 后端作品集</h1>
                 <h2>Portfolio Navigation</h2>
 
                 {!hasEntered && (
-                    <p>Welcome to ITom's interactive 3D portfolio. Click or press Enter on the doors to enter.</p>
+                    <p>欢迎来到邱焯的交互式作品集。点击房门或按回车键进入。</p>
                 )}
 
                 {hasEntered && !isInRoom && (
@@ -76,8 +89,8 @@ const ScreenReaderOverlay = () => {
                         {/* Room-specific content descriptions */}
                         {currentRoom === 'about' && (
                             <div aria-label="About room content">
-                                <h3>About Me</h3>
-                                <p>This room contains my personal story, awards, journey milestones, and technology skills displayed as interactive balloons.</p>
+                                <h3>AI 面试知识星系</h3>
+                                <p>自由驾驶纸飞机探索 28 颗知识行星。每颗行星对应一个 AI 面试专题，发光连线表示专题之间的知识关联，点击行星可查看详情。</p>
                                 
                                 {awards && (
                                     <section>
@@ -118,13 +131,15 @@ const ScreenReaderOverlay = () => {
                         {currentRoom === 'contact' && (
                             <div aria-label="Contact room content">
                                 <h3>Contact Me</h3>
-                                <p>Find my social media links displayed as floating barrels. Click to visit my profiles on LinkedIn, GitHub, and other platforms.</p>
+                                <p>联系邮箱：<a href="mailto:17728781058@163.com">17728781058@163.com</a>。</p>
+                                <p><a href="https://github.com/liqiu-814">GitHub：liqiu-814</a></p>
+                                <p><a href="https://v.douyin.com/QRrLYNEOZB0/">抖音主页</a></p>
                             </div>
                         )}
                         {currentRoom === 'studio' && (
                             <div aria-label="Studio room content">
                                 <h3>The Studio</h3>
-                                <p>Explore my experience and skills on rotating monitors. Click a monitor to read detailed information about my work.</p>
+                                <p>了解 Java 21、Spring Boot 3、Vue 3、TypeScript、RAG、LangChain4j、Python 及工程质量能力。</p>
 
                                 {studio && studio.length > 0 && (
                                     <ul>

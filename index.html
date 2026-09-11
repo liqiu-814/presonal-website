@@ -3,8 +3,26 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>张三 | 资深前端工程师</title>
-    <meta name="description" content="张三，资深前端工程师，专注前端架构与用户体验。" />
+    <title>邱焯 | AI 应用开发 / Java 后端开发</title>
+    <meta name="description" content="邱焯，广州理工学院数据科学与大数据技术本科生，专注 AI 应用开发与 Java 后端开发。" />
+    <meta name="author" content="邱焯" />
+    <meta name="keywords" content="邱焯, AI 应用开发, Java 后端, Spring Boot, Vue 3, RAG, LangChain4j, Python" />
+    <meta property="og:type" content="profile" />
+    <meta property="og:title" content="邱焯 | AI 应用开发 / Java 后端开发" />
+    <meta property="og:description" content="AI 应用、Java 后端与 Python 桌面应用个人作品集。" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "邱焯",
+        "jobTitle": "AI 应用开发 / Java 后端开发工程师",
+        "email": "mailto:17728781058@163.com",
+        "description": "广州理工学院数据科学与大数据技术本科生，专注 AI 应用与 Java 后端开发。",
+        "sameAs": ["https://github.com/liqiu-814", "https://v.douyin.com/QRrLYNEOZB0/"],
+        "alumniOf": { "@type": "CollegeOrUniversity", "name": "广州理工学院" },
+        "knowsAbout": ["Java 21", "Spring Boot 3", "Vue 3", "TypeScript", "RAG", "LangChain4j", "Python"]
+      }
+    </script>
     <link rel="icon" type="image/png" href="about-template/favico.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -39,21 +57,21 @@
     <!-- 主页 -->
     <main class="home" id="home" aria-label="个人网站首页">
       <div class="hero-layer">
-        <img class="hero-image" id="heroImage" src="Material/images/p1.jpg" alt="张三的个人主页" />
+        <img class="hero-image" id="heroImage" src="Material/images/p1.jpg" alt="邱焯的个人主页" />
       </div>
       <div class="warm-light"></div>
       <div class="vignette"></div>
 
       <!-- 入场标题 -->
       <div class="hero-title" id="heroTitle">
-        <p class="hero-kicker">资深前端工程师</p>
-        <h1 class="hero-name">张三</h1>
-        <p class="hero-sub">用代码构建流畅体验</p>
+        <p class="hero-kicker">AI 应用开发 · Java 后端</p>
+        <h1 class="hero-name">邱焯</h1>
+        <p class="hero-sub">把 AI 能力落成可靠、可使用的产品</p>
       </div>
 
       <!-- 气泡导航 -->
       <nav class="bubble-nav" id="bubbleNav" aria-label="网站导航">
-        <button class="bubble bubble-about" data-panel="about" aria-label="打开自我介绍"><span>我是谁</span></button>
+          <button class="bubble bubble-about" data-panel="about" aria-label="进入 3D 个人作品集"><span>我是谁</span></button>
         <button class="bubble bubble-work" data-panel="work" aria-label="打开项目集"><span>项目集</span></button>
         <button class="bubble bubble-social" data-panel="social" aria-label="打开社交账号"><span>找到我</span></button>
       </nav>
@@ -62,7 +80,7 @@
       <div class="scroll-hint" id="scrollHint"><span></span><p>探索</p></div>
     </main>
 
-    <!-- 自我介绍 — 滚动故事 -->
+    <!-- 旧版自我介绍滚动故事（保留视觉资源，入口改为简历面板） -->
     <section class="about-journey" id="about" aria-hidden="true">
       <button class="close" aria-label="返回首页">×</button>
       <div class="sky-wash"></div>
@@ -72,18 +90,18 @@
       <div class="journey-scroll">
         <article class="story-card intro-card" data-reveal>
           <p class="story-no">01 / 自我介绍</p>
-          <h1>你好，我是<br /><strong>张三</strong></h1>
-          <p>资深前端工程师。<br />专注前端架构与用户体验，擅长用 React 和 Vue 构建优雅的 Web 应用。</p>
+          <h1>你好，我是<br /><strong>邱焯</strong></h1>
+          <p>数据科学与大数据技术本科生。<br />以 Java / Spring Boot 后端为核心，专注 AI 应用的完整落地。</p>
         </article>
         <article class="story-card direction-card" data-reveal>
           <p class="story-no">02 / 正在前往</p>
-          <h2>用代码构建<br />流畅的体验</h2>
-          <p>我专注前端架构、性能优化与交互动效。希望用干净的代码和精致的细节，让产品更有生命力。</p>
+          <h2>让 AI 真正<br />服务学习</h2>
+          <p>我关注 RAG 检索增强、可信引用、实时交互和工程可靠性，希望把模型能力变成稳定、好用的产品体验。</p>
         </article>
         <article class="story-card skills-card" data-reveal>
           <p class="story-no">03 / 随身行囊</p>
           <h2>我的能力</h2>
-          <div class="ability-list"><span>React</span><span>Vue</span><span>TypeScript</span><span>Node.js</span></div>
+          <div class="ability-list"><span>Java / Spring Boot</span><span>Vue 3 / TypeScript</span><span>RAG / LangChain4j</span><span>Python / Tkinter</span></div>
           <p class="journey-end">故事还在继续。</p>
         </article>
       </div>
@@ -91,16 +109,55 @@
       <p class="journey-hint">向下滑动，和我一起飞一会儿</p>
     </section>
 
+    <!-- 个人资料面板 -->
+    <section class="panel profile-panel" id="about-panel" role="dialog" aria-modal="true" aria-labelledby="about-panel-title" aria-hidden="true">
+      <button class="close" aria-label="关闭">×</button>
+      <p class="panel-kicker">关于我 · PROFILE</p>
+      <h1 id="about-panel-title">邱焯</h1>
+      <p class="profile-role">AI 应用开发 / Java 后端开发 · 2027 届本科应届生</p>
+      <p class="panel-copy">数据科学与大数据技术本科生，以 Java / Spring Boot 后端为核心，具备 Vue 3 + TypeScript 前端与 Python 桌面应用开发能力。能够从需求拆解、数据建模、接口设计到前后端联调完整落地功能。</p>
+
+      <div class="profile-section">
+        <h2>教育背景</h2>
+        <p><strong>广州理工学院</strong> · 数据科学与大数据技术 · 本科</p>
+        <p class="muted">2023.09 – 2027.06（预计）</p>
+      </div>
+
+      <div class="profile-section">
+        <h2>核心能力</h2>
+        <div class="tag-list">
+          <span>Java 21</span><span>Spring Boot 3</span><span>Spring Security</span><span>JWT</span><span>MyBatis-Plus</span>
+          <span>Vue 3</span><span>TypeScript</span><span>Pinia</span><span>Vite</span><span>ECharts</span>
+          <span>DeepSeek / OpenAI API</span><span>LangChain4j</span><span>RAG</span><span>SSE</span><span>WebSocket</span>
+          <span>MySQL / PostgreSQL</span><span>Redis</span><span>RabbitMQ</span><span>MinIO / S3</span><span>Python / Tkinter</span>
+        </div>
+        <div class="skill-groups">
+          <p><strong>Java / 后端：</strong>掌握 Spring MVC、Spring Security、JWT、MyBatis-Plus，可完成 RESTful API、参数校验、统一异常处理和多环境配置。</p>
+          <p><strong>AI 应用 / RAG：</strong>熟悉 DeepSeek / OpenAI-Compatible API、Prompt 设计与 SSE；掌握文档解析、父子切片、BM25 + Embedding 混合检索、Reranker、引用校验与 OCR 接入。</p>
+          <p><strong>前端开发：</strong>熟悉 Pinia、Vue Router、Axios、ECharts、Markdown 渲染，能够独立完成数据驱动页面与前后端联调。</p>
+          <p><strong>数据与中间件：</strong>使用 MySQL、PostgreSQL、H2、Redis、RabbitMQ、MinIO / S3，理解缓存、异步任务、对象存储、用户数据隔离和数据库迁移配置。</p>
+          <p><strong>Python / 工程质量：</strong>熟悉 Tkinter、Pillow、requests、JSON 持久化与 unittest；使用 Git 管理版本，可编写单元测试、集成测试和 GUI 冒烟测试。</p>
+        </div>
+      </div>
+
+      <div class="profile-section">
+        <h2>项目经历</h2>
+        <article class="profile-project"><h3>智学伴｜大学生 AI 学习助手</h3><p class="muted">个人全栈项目 · 2026.08 – 至今</p><p>面向大学生的一体化 AI 学习平台，覆盖 AI 对话、个人课件知识库、AI 笔记、智能刷题、学习规划、实时听课与社交学习。</p><ul class="resume-points"><li>Vue 3 + Spring Boot 前后端分离；实现 BCrypt、JWT、Axios 拦截器、路由守卫，并按 user_id + kb_id 隔离数据。</li><li>支持不超过 20 MB 的 PDF / Word / PPT / Markdown 上传，包含 SHA-256 去重、配额、状态机、Apache Tika 抽取、异步解析、重试与死信恢复。</li><li>设计章节级父片段 + 检索子片段；关键词 Top-4 后扩展上下文，可选向量 75% + BM25 25% 混排，接入 Reranker、阈值降级、逐句引用校验和二次事实核验。</li><li>以 SSE 实现多轮流式问答、会话持久化、停止生成和来源回显；通过 AudioWorklet + WebSocket 传输 PCM 音频、接收增量转写并生成课后学习资料。</li><li>打通 Markdown 笔记、文档导入、OCR、课堂总结、CET4 / CET6 真题、AI 计划、任务打卡和工作台统计。</li><li>开发环境可零中间件启动，并可切换 MySQL / PostgreSQL + pgvector、MinIO、RabbitMQ；AI 服务不可用时自动降级。</li><li>14 个 Vue 业务页面、20 个 Spring Controller、100+ 接口映射、46 个 JUnit 测试。</li></ul></article>
+        <article class="profile-project"><h3>单词复习小助手｜罗小黑桌宠学习工具</h3><p class="muted">个人 Python 桌面项目 · 2025.09 – 2026.09</p><p>本地运行、无需数据库的英语单词管理与复习工具，整合多模式练习、CET4 词库、学习统计和可交互 GIF 桌宠。</p><ul class="resume-points"><li>将早期单文件程序重构为 app、storage、services、mascot、widgets 等 6 个模块，使用 Tkinter 完成完整页面与圆角按钮组件。</li><li>支持单词 CRUD、模糊搜索、批量删除、收藏、清空与多分隔符导入，个人词库与 CET4 公共词库隔离。</li><li>提供英文拼写、中文释义、缺字填空、选择释义、听音选词、听写、听音选释义 7 种练习及随机模式。</li><li>同步 GitHub 开源 CET4 词库并本地缓存；有道、MyMemory、Google 翻译依次降级，Windows System.Speech 提供发音。</li><li>JSON 写入采用临时文件 + 原子替换，启动时清理损坏或孤立数据，并按自然日重置收藏和奖励。</li><li>Pillow 解码多状态 GIF，桌宠支持透明置顶、拖动、边缘停靠、隐藏恢复、快捷菜单和答题反馈动画；14 项 unittest 覆盖关键逻辑与 GUI 生命周期。</li></ul></article>
+      </div>
+
+      <div class="profile-section profile-contact"><h2>联系我</h2><a href="mailto:17728781058@163.com">17728781058@163.com</a><a href="https://github.com/liqiu-814" target="_blank" rel="noopener noreferrer">GitHub · liqiu-814</a><a href="https://v.douyin.com/QRrLYNEOZB0/" target="_blank" rel="noopener noreferrer">抖音主页</a><span>求职方向：AI 应用 / Java 后端</span></div>
+    </section>
+
     <!-- 项目集面板 -->
     <section class="panel" id="work" role="dialog" aria-modal="true" aria-labelledby="work-title" aria-hidden="true">
       <button class="close" aria-label="关闭">×</button>
       <p class="panel-kicker">我的作品</p>
       <h1 id="work-title">项目集</h1>
-      <p class="panel-copy">这里展示我参与过的前端项目，包括 Web 应用、组件库和交互体验。</p>
+      <p class="panel-copy">这里展示我独立完成的 AI 应用与 Python 桌面工具项目，覆盖从需求、架构到测试交付的完整链路。</p>
       <div class="project-list">
-        <div class="project-card" data-reveal><div class="project-icon">⚡</div><h3>企业级管理后台</h3><p>React + TypeScript，权限管理与数据可视化</p></div>
-        <div class="project-card" data-reveal><div class="project-icon">🛒</div><h3>电商前台系统</h3><p>Vue 3 + Nuxt，首屏 Lighthouse 95+</p></div>
-        <div class="project-card" data-reveal><div class="project-icon">📊</div><h3>数据可视化平台</h3><p>React + ECharts，多数据源实时更新</p></div>
+        <div class="project-card project-card-stacked" data-reveal><div class="project-icon">🧠</div><div><h3>智学伴｜大学生 AI 学习助手</h3><p>Java 21 / Spring Boot 3 / Vue 3 / LangChain4j / RAG / SSE / WebSocket / PostgreSQL / Redis / RabbitMQ / MinIO</p><small>知识库生产链路、可信回答、实时听课、学习闭环与 46 项 JUnit 测试。</small></div></div>
+        <div class="project-card project-card-stacked" data-reveal><div class="project-icon">🐈</div><div><h3>单词复习小助手｜罗小黑桌宠学习工具</h3><p>Python / Tkinter / Pillow / requests / JSON / unittest / Windows System.Speech</p><small>7 种复习模式、CET4 词库、统计奖励、服务降级与透明置顶桌宠。</small></div></div>
       </div>
     </section>
 
@@ -109,12 +166,12 @@
       <button class="close" aria-label="关闭">×</button>
       <p class="panel-kicker">保持联系</p>
       <h1 id="social-title">找到我</h1>
-      <p class="panel-copy">如果你有合作意向或想交流前端技术，欢迎联系我。</p>
+      <p class="panel-copy">欢迎交流 AI 应用、Java 后端和学习工具开发。以下是简历中提供的联系信息。</p>
       <div class="social-grid">
-        <span class="social-card is-placeholder" data-reveal><span class="social-emoji">📧</span><span>邮箱</span></span>
-        <span class="social-card is-placeholder" data-reveal><span class="social-emoji">🐙</span><span>GitHub</span></span>
-        <span class="social-card is-placeholder" data-reveal><span class="social-emoji">💼</span><span>LinkedIn</span></span>
-        <span class="social-card is-placeholder" data-reveal><span class="social-emoji">💬</span><span>微信</span></span>
+        <a class="social-card" data-reveal href="mailto:17728781058@163.com"><span class="social-emoji">📧</span><span>17728781058@163.com</span></a>
+        <a class="social-card" data-reveal href="https://github.com/liqiu-814" target="_blank" rel="noopener noreferrer"><span class="social-emoji">🐙</span><span>GitHub · liqiu-814</span></a>
+        <a class="social-card" data-reveal href="https://v.douyin.com/QRrLYNEOZB0/" target="_blank" rel="noopener noreferrer"><span class="social-emoji">🎵</span><span>抖音主页</span></a>
+        <span class="social-card is-placeholder" data-reveal><span class="social-emoji">🛠️</span><span>Java / Vue 3 / Python</span></span>
       </div>
     </section>
 

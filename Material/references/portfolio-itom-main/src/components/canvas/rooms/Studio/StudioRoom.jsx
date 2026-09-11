@@ -7,7 +7,7 @@ import { useScene } from '../../../../context/SceneContext';
 import { useAchievements } from '../../../../context/AchievementsContext';
 import { TextureLoader } from 'three';
 import FloatingCodeParticles from './FloatingCodeParticles';
-import { PositionalAudio } from '@react-three/drei';
+import { PositionalAudio, Text } from '@react-three/drei';
 import { useAudio } from '../../../../context/AudioManager';
 import { useStudioContent } from '../../../../hooks/useSanityData';
 import '../../shaders/RevealMaterial';
@@ -601,6 +601,67 @@ const StudioRoom = ({ showRoom, onReady, isExiting, isWarmup }) => {
 // MONITOR BLOCK COMPONENT - with Paint Reveal on Hover
 // Uses proven two-box approach: painted box behind + sketch box with revealMaterial in front
 // ===========================================
+const ConsoleScreen = memo(({ item }) => {
+    const statusRef = useRef();
+    const isPhone = item.device === 'phone';
+    const panelWidth = item.width * (isPhone ? 0.72 : 0.74);
+    const panelHeight = item.height * (isPhone ? 0.78 : 0.58);
+    const fontSize = isPhone ? 0.055 : 0.085;
+    const accent = item.platformConfig?.accentColor || '#53F5C8';
+
+    useFrame((state) => {
+        if (statusRef.current?.material) {
+            statusRef.current.material.opacity = 0.58 + Math.sin(state.clock.elapsedTime * 3) * 0.28;
+        }
+    });
+
+    return (
+        <group position={[0, 0, item.depth / 2 + 0.012]}>
+            <mesh>
+                <planeGeometry args={[panelWidth, panelHeight]} />
+                <meshBasicMaterial color="#071014" toneMapped={false} />
+            </mesh>
+            <Text
+                position={[0, panelHeight * 0.34, 0.008]}
+                maxWidth={panelWidth * 0.9}
+                fontSize={fontSize * 1.12}
+                color={accent}
+                font="/fonts/CabinSketch-Bold.ttf"
+                anchorX="center"
+                anchorY="middle"
+            >
+                {item.screenTitle}
+            </Text>
+            {(item.screenLines || []).map((line, index) => (
+                <Text
+                    key={`${item.id}-${line}`}
+                    position={[-panelWidth * 0.42, panelHeight * 0.14 - index * fontSize * 1.42, 0.008]}
+                    maxWidth={panelWidth * 0.84}
+                    fontSize={fontSize}
+                    color="#D6F7EA"
+                    font="/fonts/CabinSketch-Regular.ttf"
+                    anchorX="left"
+                    anchorY="middle"
+                >
+                    {`> ${line}`}
+                </Text>
+            ))}
+            <Text
+                ref={statusRef}
+                position={[panelWidth * 0.38, -panelHeight * 0.39, 0.008]}
+                fontSize={fontSize * 0.78}
+                color={accent}
+                font="/fonts/CabinSketch-Bold.ttf"
+                anchorX="right"
+                anchorY="middle"
+                fillOpacity={0.8}
+            >
+                {`● ${item.status}`}
+            </Text>
+        </group>
+    );
+});
+
 const MonitorBlock = memo(({ item, meshRef, isSelected, onMonitorClick, disabled, paintOnBeforeCompile, paintUniforms }) => {
     // Position.y is updated directly by parent's useFrame via meshRef
     const paintedBoxRef = useRef();
@@ -859,9 +920,11 @@ const MonitorBlock = memo(({ item, meshRef, isSelected, onMonitorClick, disabled
                     }
                 })}
             </mesh>
+
+            {/* Live development-console UI layered over the original screen face. */}
+            <ConsoleScreen item={item} />
         </group>
     );
 });
 
 export default StudioRoom;
-

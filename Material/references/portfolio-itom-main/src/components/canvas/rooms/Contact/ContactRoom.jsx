@@ -395,39 +395,43 @@ const ContactRoom = ({ showRoom, onReady, isExiting, isWarmup }) => {
             </group>
 
             {/* 🛢️ SOCIAL BARRELS (Floating in water) */}
-            {/* LINKEDIN */}
+            {/* GITHUB */}
             <SocialBarrel
                 position={isMobile ? [-1.2, 0.5, -10] : [-3, 0.5, -10]}
                 rotation={[0, 0.2, 0]}
                 texturePath="/textures/contact/beczka.webp"
-                label="LINKEDIN"
+                label="GITHUB"
+                onClick={() => window.open('https://github.com/liqiu-814', '_blank', 'noopener,noreferrer')}
                 paintOnBeforeCompile={onBeforeCompile}
                 paintUniforms={uniformsData}
             />
-            {/* GITHUB */}
+            {/* DOUYIN */}
             <SocialBarrel
                 position={isMobile ? [-1.5, -0.3, -7] : [-5, -0.3, -8]}
                 rotation={[0, 0.3, 0]}
                 texturePath="/textures/contact/beczka.webp"
-                label="GITHUB"
+                label="DOUYIN"
+                onClick={() => window.open('https://v.douyin.com/QRrLYNEOZB0/', '_blank', 'noopener,noreferrer')}
                 paintOnBeforeCompile={onBeforeCompile}
                 paintUniforms={uniformsData}
             />
-            {/* FACEBOOK */}
+            {/* AI APP */}
             <SocialBarrel
                 position={isMobile ? [1.2, 0.5, -10] : [3, 0.5, -10]}
                 rotation={[0, -0.2, 0]}
                 texturePath="/textures/contact/beczka.webp"
-                label="FACEBOOK"
+                label="AI APP"
+                onClick={() => window.open('https://github.com/liqiu-814', '_blank', 'noopener,noreferrer')}
                 paintOnBeforeCompile={onBeforeCompile}
                 paintUniforms={uniformsData}
             />
-            {/* INSTAGRAM */}
+            {/* JAVA */}
             <SocialBarrel
                 position={isMobile ? [1.5, -0.3, -7] : [5, -0.3, -8]}
                 rotation={[0, -0.3, 0]}
                 texturePath="/textures/contact/beczka.webp"
-                label="INSTAGRAM"
+                label="JAVA"
+                onClick={() => window.open('https://github.com/liqiu-814', '_blank', 'noopener,noreferrer')}
                 paintOnBeforeCompile={onBeforeCompile}
                 paintUniforms={uniformsData}
             />

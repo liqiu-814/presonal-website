@@ -224,6 +224,27 @@ button:focus-visible, a:focus-visible {
 .project-icon { font-size: 1.8rem; }
 .project-card h3 { font-size: 1.1rem; margin-bottom: .2rem; }
 .project-card p { font-size: .85rem; color: #8a6055; }
+.project-card-stacked { align-items: flex-start; }
+.project-card-stacked small { display: block; margin-top: .45rem; color: #6f4a41; line-height: 1.65; }
+
+/* 完整个人资料 */
+.profile-panel { width: min(52rem, calc(100vw - 2rem)); }
+.profile-role { margin-top: .35rem; color: var(--accent); font-weight: 700; }
+.profile-section { margin-top: 1.5rem; padding-top: 1.2rem; border-top: 1px dashed #d7a494; }
+.profile-section h2 { margin-bottom: .7rem; font-size: 1.2rem; }
+.profile-section p { line-height: 1.8; color: #64443c; }
+.profile-section .muted { color: #967065; font-size: .86rem; }
+.tag-list { display: flex; flex-wrap: wrap; gap: .5rem; }
+.tag-list span { padding: .45rem .7rem; border: 1px solid #e5b9aa; border-radius: 999px; background: #fff9ed; font-size: .8rem; }
+.skill-groups { display: grid; gap: .55rem; margin-top: 1rem; }
+.skill-groups p { font-size: .9rem; }
+.profile-project + .profile-project { margin-top: 1.1rem; }
+.profile-project h3 { margin-bottom: .15rem; font-size: 1rem; }
+.resume-points { margin: .65rem 0 0 1.15rem; display: grid; gap: .4rem; color: #64443c; font-size: .88rem; line-height: 1.65; }
+.profile-contact { display: flex; flex-wrap: wrap; align-items: center; gap: .6rem 1rem; }
+.profile-contact h2 { flex-basis: 100%; margin-bottom: 0; }
+.profile-contact a { color: #b94f3b; font-weight: 700; text-decoration-thickness: 1px; text-underline-offset: 3px; overflow-wrap: anywhere; }
+.profile-contact span { color: #70483e; }
 
 /* 社交卡片 */
 .social-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: .8rem; }
@@ -239,6 +260,7 @@ button:focus-visible, a:focus-visible {
 .social-card.is-placeholder:hover { transform: none; box-shadow: none; }
 .social-emoji { font-size: 2rem; }
 .social-card span:last-child { font-weight: 500; }
+.social-card span:last-child { text-align: center; overflow-wrap: anywhere; }
 
 /* ===== 自我介绍滚动故事 ===== */
 .about-journey {

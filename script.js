@@ -319,7 +319,7 @@ bubbles.forEach(bubble => {
   bubble.addEventListener('click', () => {
     if (bubble.dataset.panel === 'about') {
       doorOverlay?.classList.add('active');
-      window.setTimeout(() => { window.location.href = 'about-template/index.html?v=4'; }, prefersReducedMotion.matches ? 0 : 1000);
+      window.setTimeout(() => { window.location.href = 'about-template/index.html'; }, prefersReducedMotion.matches ? 0 : 1000);
       return;
     }
     openPanel(bubble.dataset.panel, bubble);

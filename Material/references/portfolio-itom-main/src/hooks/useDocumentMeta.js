@@ -12,28 +12,28 @@ import { useScene } from '../context/SceneContext';
 const ROOM_META = {
     null: {
         path: '/',
-        title: '张三 — 资深前端工程师作品集',
-        description: '张三的交互式 3D 前端作品集，专注前端架构、性能优化与用户体验。',
+        title: '邱焯 — AI 应用开发 / Java 后端作品集',
+        description: '邱焯的交互式作品集，展示 AI 应用、Java 后端与 Python 桌面开发能力。',
     },
     about: {
         path: '/about',
-        title: '关于我 — 张三作品集',
-        description: '了解张三的前端开发经历、技术能力与工作方向。',
+        title: 'AI 面试知识星系 — 邱焯作品集',
+        description: '驾驶纸飞机探索 28 个 AI 面试知识专题组成的互动 3D 星系。',
     },
     gallery: {
         path: '/gallery',
-        title: '项目集 — 张三作品集',
-        description: '浏览交互式 3D 项目展厅中的前端开发作品。',
+        title: '项目集 — 邱焯作品集',
+        description: '浏览智学伴 AI 学习助手与单词复习桌面工具。',
     },
     studio: {
         path: '/studio',
-        title: '创作日常 — 张三作品集',
-        description: '浏览 3D 创作空间中的内容与开发记录。',
+        title: '技术能力 — 邱焯作品集',
+        description: '浏览 Java、Vue 3、RAG、Python 与工程质量能力。',
     },
     contact: {
         path: '/contact',
-        title: '联系我 — 张三作品集',
-        description: '通过交互式 3D 联系空间了解合作方式。',
+        title: '联系我 — 邱焯作品集',
+        description: '通过邮箱 17728781058@163.com 联系邱焯。',
     },
 };
 
