@@ -1,0 +1,13 @@
+{
+  "name": "qiuzhuo-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "邱焯的个人作品集",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "check": "node scripts/check-dist.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

@@ -1,0 +1,47 @@
+# Generated deployment output
+dist/
+
+# Local dependencies and browser diagnostics
+node_modules/
+.chrome-check/
+.chrome-deploy-check*/
+
+# Local editor settings
+.vscode/
+
+# Development-only artwork and references
+Material/backup_original/
+Material/debug/
+Material/frames_new/
+Material/references/
+Material/generated_avatar_raw*.png
+textures/**/backups/
+
+# Duplicate runtime assets retained only for local compatibility
+about-template/cursors/
+about-template/fonts/
+about-template/images/
+about-template/sounds/
+about-template/textures/
+!about-template/textures/
+about-template/textures/*
+!about-template/textures/corridor/
+about-template/textures/corridor/*
+!about-template/textures/corridor/avatar_sketch.webp
+about-template/assets/
+!about-template/assets/
+about-template/assets/*
+!about-template/assets/index-bZnzF_b6.js
+!about-template/assets/index-QPG3x1c9.css
+!about-template/assets/Experience-C5_SznB9.js
+!about-template/assets/browser-C482xkez.js
+!about-template/assets/stegaEncodeSourceMap-DTCApOeB.js
+
+# Knowledge-base sources not needed by the website
+ai-interview-guide-main/ai-books-online/
+ai-interview-guide-main/assets/
+ai-interview-guide-main/.gitignore
+ai-interview-guide-main/CONTENT_QUALITY.md
+ai-interview-guide-main/ILLUSTRATION_GUIDE.md
+ai-interview-guide-main/LICENSE
+ai-interview-guide-main/README*.md
