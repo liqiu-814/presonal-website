@@ -32,6 +32,11 @@ function walk(directory) {
 const missingFiles = requiredFiles.filter(path => !existsSync(join(outputRoot, path)));
 if (missingFiles.length) throw new Error(`部署产物缺少文件：${missingFiles.join(', ')}`);
 
+const wranglerConfig = readFileSync(join(projectRoot, 'wrangler.jsonc'), 'utf8');
+if (!wranglerConfig.includes('"directory": "./dist"')) {
+  throw new Error('Wrangler 未配置 dist 静态资源目录');
+}
+
 const oversizedFiles = walk(outputRoot)
   .filter(path => statSync(path).size > maximumAssetBytes)
   .map(path => relative(outputRoot, path));
